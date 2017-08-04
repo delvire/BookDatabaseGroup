@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Add Book</title>
+</head>
+<body>
+<h1>Enter the details of the book</h1>
+<form action="#" th:action="@{/addbook}" th:object="${addbook}" method="post">
+    <p>SKU: <input type="number" th:field="*{sku}"/>
+        <span th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}">Problem with "sku"</span></p>
+    <p>Title: <input type="text" th:field="*{title}"/>
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Problem with "title"</span></p>
+    <p>Author/s: <input type="text" th:field="*{author}"/>
+        <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Problem with "author"</span></p>
+    <p>Price: <input type="text" th:field ="*{price}"/>
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Problem with "price"</span></p>
+    <p>Description: <input type="text" th:field="*{description}"/>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Problem with "description"</span></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>

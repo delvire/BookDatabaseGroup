@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Book Details</title>
+</head>
+<body>
+<h1>Current Books in Database</h1>
+
+<table>
+    <tr>
+        <th>
+
+        </th>
+    </tr>
+<tr th:foreach="book : ${bookList}" >
+    <td th:text="'Author:' +${book.author}"/>
+    <td th:text="'Book:' +${book.title}"/>
+</tr>
+</table>
+
+<a href="/addbook">Add another book </a>
+</body>
+</html>

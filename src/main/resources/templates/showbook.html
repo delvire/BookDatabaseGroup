@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Book Details</title>
+</head>
+<body>
+<h1>Book Details</h1>
+<p th:text="'Book:' +${addbook.title}"></p>
+<p th:text ="'SKU: ' +${addbook.sku}"/>
+<p th:text="'Author: ' +${addbook.author}"/>
+<p th:text="'Price ' + ${addbook.price}"/>
+<p th:text="'Description: ' +${addbook.description}"/>
+<a href="/addbook">Add another book </a>
+</body>
+</html>
