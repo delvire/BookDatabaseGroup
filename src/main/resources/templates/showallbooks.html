@@ -7,18 +7,24 @@
 <body>
 <h1>Current Books in Database</h1>
 
-<table>
+<table border="2">
     <tr>
-        <th>
-
-        </th>
+        <th>SKU</th>
+        <th>TITLE</th>
+        <th>AUTHOR(S)</th>
+        <th>PRICE</th>
+        <th>DESCRIPTION</th>
     </tr>
 <tr th:each="book : ${bookList}" >
-    <!--<td th:text="'Author:' +${book.author}"/>-->
-    <td th:text="'Book:' +${book.title}"/>
+    <td th:text="${book.sku}"/>
+    <td th:text="${book.title}"/>
+    <td th:text="${book.author}"/>
+    <td th:text="${book.price}"/>
+    <td th:text="${book.description}"/>
+
 </tr>
 </table>
 
-<a href="/addbook">Add another book </a>
+<a href="/getstarted">Go back to the starter page</a>
 </body>
 </html>

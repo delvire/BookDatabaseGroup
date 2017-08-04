@@ -1,5 +1,11 @@
 package edu.berliner.bookdatabasegroup.controllers;
 
+/*
+ *Project allows user to enter books one by one, add a preset group of books,
+ * and view the books currently in the database.
+ *
+ * @authors Elvire and Jesse
+ */
 
 import edu.berliner.bookdatabasegroup.Books;
 import edu.berliner.bookdatabasegroup.repositories.BookRepository;
@@ -21,12 +27,20 @@ public class MainController
     @Autowired //prevents requirement to reinstantiate in every method
     BookRepository bookRepository;
 
+    @GetMapping("/getstarted")
+    public String getStarted()
+    {
+
+        return "getstarted";
+    }
+
     @GetMapping("/addbook")
     public String addBook(Model model)
     {
         model.addAttribute("addbook", new Books());
         return "addbook";
     }
+
 
     @GetMapping("/addstarterbooks")
     public String addStarterBooks()
@@ -35,7 +49,7 @@ public class MainController
         String titles[]={"Head First Java", "Thinking in Java", "OCP: Oracle Certified Professional Java SE", "Automate the Boring Stuff with Python", "The Maker's Guide to the Zombie Apocalypse", "Raspberry Pi Projects for the Evil Genius"};
         String authors[]={"Kathy Sierra and Bert Bates", "Bruce Eckel", "Jeanne Boyarsky", "Al Sweigart", "Simon Monk", "Donald Norris"};
         double prices[]={47.50, 20.00, 45.00, 10.50, 16.50, 14.75};
-        String descriptions[]={"Easy to read Java workbook", "Details about Java under the hood", "Details about Java under the hood", "Fun with Python", "Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi", "A dozen fiendishly fun projects for the Raspberry Pi!"};
+        String descriptions[]={"Easy to read Java workbook", "Details about Java under the hood", "Everything you need to know in one place", "Fun with Python", "Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi", "A dozen fiendishly fun projects for the Raspberry Pi!"};
 
         Books addStarter;
         for(int counter=0; counter<6; counter++)
@@ -67,10 +81,6 @@ public class MainController
     {
 
         Iterable <Books> bookList = bookRepository.findAll();
-        for(Books book: bookList)
-        {
-            System.out.println(book.getAuthor());
-        }
         model.addAttribute("bookList", bookList);
 
         return "showallbooks";
