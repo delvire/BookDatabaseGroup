@@ -13,8 +13,8 @@
 
         </th>
     </tr>
-<tr th:foreach="book : ${bookList}" >
-    <td th:text="'Author:' +${book.author}"/>
+<tr th:each="book : ${bookList}" >
+    <!--<td th:text="'Author:' +${book.author}"/>-->
     <td th:text="'Book:' +${book.title}"/>
 </tr>
 </table>
